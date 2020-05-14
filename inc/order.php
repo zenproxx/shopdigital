@@ -288,7 +288,7 @@ function waorder_order_customer_metabox_view($post){
         <div class="order-customer waorder-clearfix">
             <p>
                 <label style="font-weight:bold">Nama Lengkap</label><br/>
-                <input type="text" style="width:100%" value="<?php echo get_post_meta($post->ID, 'customer_full_name', true); ?>" name="customer_full_name" required><br/>
+                <input type="text" style="width:100%" value="<?php echo get_post_meta($post->ID, 'customer_full_name', true); ?>" name="customer_full_name" ><br/>
             </p>
             <p>
                 <label style="font-weight:bold">Nomor Hp</label><br/>
@@ -583,6 +583,7 @@ function ajax_export_orders(){
 
 add_action('wp_ajax_order_create', 'waorder_order_create');
 add_action('wp_ajax_nopriv_order_create', 'waorder_order_create');
+
 function waorder_order_create(){
 
     $input = file_get_contents("php://input");
@@ -662,9 +663,44 @@ function waorder_order_create(){
         update_post_meta($post_id, 'order_ongkir', sanitize_text_field($data['order_courier']));
         update_post_meta($post_id, 'order_items', sanitize_text_field($data['order_items']));
         update_post_meta($post_id, 'order_payment_type', sanitize_text_field($data['payment_type']));
+        
+        $address = array(
+            'first_name' => sanitize_text_field($data['full_name']),
+            'last_name'  => '',
+            'company'    => '',
+            'email'      => '',
+            'phone'      => sanitize_text_field($data['phone']),
+            'address_1'  => sanitize_text_field($data['address']),
+            'address_2'  => '', 
+            'city'       => '',
+            'state'      => '',
+            'postcode'   => '',
+            'country'    => ''
+        );
+
+        $items=json_decode($data['order_items']);
+        $order = wc_create_order();
+        foreach($items as $item) {
+            $order->add_product( get_product($item->order_item_id), $item->order_item_qty);
+            echo $item->order_item_id;    
+            echo $item->order_item_qty;    
+        }
+
+        $order->set_address( $address, 'billing' );
+        $order->set_address( $address, 'shipping' );
+    
+        $order->calculate_totals();
+    
+        update_post_meta( $order->id, '_payment_method', sanitize_text_field($data['payment_type']) );
+        update_post_meta( $order->id, '_payment_method_title', sanitize_text_field($data['payment_type']) );
+
+        //$cart->empty_cart();
+    
         echo $post_id;
+        
         exit;
     endif;
 
     exit;
 }
+

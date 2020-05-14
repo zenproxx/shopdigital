@@ -54,7 +54,8 @@
 
 					<div class="right">
 						<div class="contentbox">
-							<?php if( get_post_meta($post->ID, 'product_out_stock', true) == 'yes' ): ?>
+						<?php global $product; ?>
+						<?php if( ! $product->managing_stock() && ! $product->is_in_stock() ): ?>
 								<div class="outstock">
 									Stok Habis
 								</div>
@@ -62,12 +63,20 @@
 							<h1><?php the_title(); ?></h1>
 
 							<form class="orderBox" method="post" enctype="multipart/form-data" id="productData">
-								<?php
+							<?php
 								$post_id = get_the_ID();
 								$thumb                  = wp_get_attachment_image_src(get_post_thumbnail_id($post_id));
+								$stock 					= get_post_meta( $post_id, '_stock', true );
 								$is_out_stock           = get_post_meta($post_id, 'product_out_stock', true);
-								$price                  = get_post_meta($post_id, 'product_price', true);
-								$price_slik             = get_post_meta($post_id, 'product_price_slik', true);
+								if ( $product->managing_stock() && ! $product->is_in_stock() ) {
+									$is_out_stock='yes';
+								}
+								
+								//$is_out_stock           = get_post_meta($post_id, 'product_out_stock', true);
+								//$price                  = get_product($post_id)->get_price;
+								//$price_slik             = get_post_meta($post_id, '_sale_price', true);
+								$price                  = get_post_meta($post_id, '_regular_price', true);
+								//$price_slik             = get_post_meta($post_id, '_sale_price', true);
 								$size_data              = get_post_meta($post_id, 'product_size', true);
 								$color_data             = get_post_meta($post_id, 'product_color', true);
 
