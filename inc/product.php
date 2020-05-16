@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', 'waorder_product'); // Add our Product Type
+//add_action('init', 'waorder_product'); // Add our Product Type
 function waorder_product()
 {
     if( waorder_lislis() !== 'active' ) return;
@@ -34,7 +34,7 @@ function waorder_product()
 }
 
 
-add_action( 'init', 'waorder_product_category_taxonomy', 0 );
+//add_action( 'init', 'waorder_product_category_taxonomy', 0 );
 
 function waorder_product_category_taxonomy() {
     $labels = array(
@@ -65,7 +65,7 @@ function waorder_product_category_taxonomy() {
 /*
  * Add a meta box
  */
-add_action( 'add_meta_boxes', 'waorder_product_metabox', 0, 2 );
+//add_action( 'add_meta_boxes', 'waorder_product_metabox', 0, 2 );
 function waorder_product_metabox( $post_type, $post ) {
     add_meta_box('waorder_product_galery',
         'Featured Image Gallery',
@@ -270,7 +270,7 @@ function waorder_product_galery_metabox_view( $post ) {
 /*
  * Save Meta Box data
  */
-add_action('save_post', 'waorder_product_metabox_save');
+//add_action('save_post', 'waorder_product_metabox_save');
 function waorder_product_metabox_save( $post_id ) {
 
     if ( !isset( $_POST['waordernonce'] ) ) {

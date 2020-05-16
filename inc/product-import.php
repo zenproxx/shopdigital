@@ -19,7 +19,7 @@ function waorder_product_import_admin_menu(){
     );
 }
 
-add_action( 'admin_menu',  'waorder_product_import_admin_menu' );
+//add_action( 'admin_menu',  'waorder_product_import_admin_menu' );
 
 function waorder_product_import_page(){
 
