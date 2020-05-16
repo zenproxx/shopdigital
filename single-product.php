@@ -80,6 +80,10 @@
 								$size_data              = get_post_meta($post_id, 'product_size', true);
 								$color_data             = get_post_meta($post_id, 'product_color', true);
 
+								$post_content = get_post($post_id);
+								$content = $post_content->post_content;
+								$deskripsi             	= get_the_content(null,False,'post_content', $post_id);;
+
 								$custom_variable_label  = get_post_meta($post_id, 'product_custom_variable_label', true);
 								$custom_variable_fields = get_post_meta($post_id, 'product_custom_variable_value', true);
 
@@ -241,6 +245,7 @@
 						<h2>Detail Produk</h2>
 						<div class="textbox">
 							<?php the_content(); ?>
+							<!-- <?php echo $deskripsi ?> -->
 						</div>
 					</div>
 				</div>
