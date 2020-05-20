@@ -222,12 +222,12 @@ function waorder_footer(){
                                     <input type="text" name="full_name" placeholder="Nama Lengkap"  oninvalid="this.setCustomValidity('Input Nama Lengkap Anda')" oninput="this.setCustomValidity('')">
                                 </div>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <div class="input">
                                     <i class="fas fa-phone-alt"></i>
                                     <input type="tel" name="phone" placeholder="Nomor Hp" pattern="[0-9]{9,13}"  oninvalid="this.setCustomValidity('Nomor Hp tidak valid!')" oninput="this.setCustomValidity('')">
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                     </table>
                     <table>
