@@ -146,6 +146,7 @@
 								<div class="variable">
 									<p>Quantity</p>
 									<div class="variable-qty clear">
+										<p><b>Tersedia <?php echo $stock?></b></p>
 										<button type="button" class="minus" onclick="productOptionQty(this,'minus');">-</button>
 										<input min="1" type="number" value="1" name="order_item_qty">
 										<button type="button" class="plus" onclick="productOptionQty(this,'plus');">+</button>
@@ -245,7 +246,6 @@
 						<h2>Detail Produk</h2>
 						<div class="textbox">
 							<?php the_content(); ?>
-							<!-- <?php echo $deskripsi ?> -->
 						</div>
 					</div>
 				</div>
