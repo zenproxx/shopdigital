@@ -566,7 +566,7 @@ function orderWA(ini){
 		orderDetail += 'Pembayaran : *' + inputs.payment_type + '*%0A';
 	}
 
-	let url = wa + '?phone=' + inputs.admin_phone + '&text=' + inputs.gretings + '.%0A' + orderDetail + '--------------------------------%0A*Nama :*%0A' + inputs.full_name + ' (' + inputs.phone + ') %0A%0A*Alamat :*%0A' + inputs.address.replace(/(\r\n|\n|\r)/gm,'%0A') + subdistrict + '%0A%0A' +'Via ' + location.href;
+	let url = wa + '?phone=' + inputs.admin_phone + '&text=' + inputs.gretings + '.%0A' + orderDetail + '--------------------------------%0A*Nama Pembeli :*%0A' + inputs.full_name + ' (' + inputs.phone + ') %0A%0A*Alamat Penerima :*%0A' + inputs.address.replace(/(\r\n|\n|\r)/gm,'%0A') + subdistrict + '%0A%0A' +'Pemesanan ini dibuat Via ' + location.href;
 
 	inputs.order_items = JSON.stringify(cartItems);
 

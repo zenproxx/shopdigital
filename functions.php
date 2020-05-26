@@ -313,7 +313,8 @@ function waorder_footer(){
                 <div id="cartAdd" class="cart-add">
                     <div class="cart-add-inner">
                         <p>
-                            <a class="color-scheme-background" onclick="openCartWA();">Lanjut Checkout</a>
+                            <!-- <a class="color-scheme-background" onclick="openCartWA();">Lanjut Checkout</a> -->
+                            <a class="color-scheme-background" onclick="openCartWA();">Beli Sekarang</a>
                             <a href="<?php echo site_url(); ?>/product/" class="order-again-background">Belanja Lagi</a>
                         </p>
                     </div>

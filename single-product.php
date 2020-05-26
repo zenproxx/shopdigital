@@ -154,10 +154,10 @@
 								</div>
 
 								<div class="variable clear">
-									<button type="button" class="order-button<?php if( $is_out_stock == 'yes' ){ echo ' outofstock';}else{echo ' color-scheme-background" onclick="singleCartWA(this);';} ?>">
+									<!-- <button type="button" class="order-button<?php if( $is_out_stock == 'yes' ){ echo ' outofstock';}else{echo ' color-scheme-background" onclick="singleCartWA(this);';} ?>">
 										<i class="icon ion-logo-whatsapp"></i>
 										Beli Sekarang
-									</button>
+									</button> -->
 									<button type="button" class="add-to-cart-button<?php if( $is_out_stock == 'yes' ){ echo ' outofstock';}else{echo ' add-to-cart-background" onclick="addToCartWA(this);'; } ?>">
 										<i class="icon ion-md-cart"></i>
 										Tambah Ke Keranjang
