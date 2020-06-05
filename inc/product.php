@@ -1,7 +1,7 @@
 <?php
 
 //add_action('init', 'waorder_product'); // Add our Product Type
-function waorder_product()
+/* function waorder_product()
 {
     if( waorder_lislis() !== 'active' ) return;
     register_post_type('product', // Register Custom Post Type
@@ -31,12 +31,12 @@ function waorder_product()
         'can_export' => true,
         'menu_icon' => 'dashicons-products',
     ));
-}
+} */
 
 
 //add_action( 'init', 'waorder_product_category_taxonomy', 0 );
 
-function waorder_product_category_taxonomy() {
+/* function waorder_product_category_taxonomy() {
     $labels = array(
         'name'              => _x( 'Categories', 'taxonomy general name' ),
         'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
@@ -60,12 +60,12 @@ function waorder_product_category_taxonomy() {
         'rewrite'           => array( 'slug' => 'product-category' ),
     ));
 
-}
+} */
 
 /*
  * Add a meta box
  */
-//add_action( 'add_meta_boxes', 'waorder_product_metabox', 0, 2 );
+add_action( 'add_meta_boxes', 'waorder_product_metabox', 0, 2 );
 function waorder_product_metabox( $post_type, $post ) {
     add_meta_box('waorder_product_galery',
         'Featured Image Gallery',
@@ -74,23 +74,23 @@ function waorder_product_metabox( $post_type, $post ) {
         'side',
         'default' );
 
-    add_meta_box(
+/*     add_meta_box(
         'waorder_product_details',
         'Product Detail',
         'waorder_product_detail_metabox_view',
         'product',
         'normal',
         'high'
-    );
+    ); */
 
-    add_meta_box('waorder_product_mp_link',
+    /* add_meta_box('waorder_product_mp_link',
         'Link Produk Di Marketplace',
         'waorder_product_link_mp_metabox_view',
         'product',
         'side',
-        'low' );
+        'low' ); */
 }
-function waorder_product_link_mp_metabox_view($post){
+/* function waorder_product_link_mp_metabox_view($post){
     wp_nonce_field('noncenonce','waordernonce');
     $link_default = array(
         'bukalapak' => '',
@@ -123,8 +123,8 @@ function waorder_product_link_mp_metabox_view($post){
     </div>
     <?php
 }
-
-function waorder_product_detail_metabox_view($post){
+ */
+/* function waorder_product_detail_metabox_view($post){
     wp_nonce_field('noncenonce','waordernonce');
 
     ?>
@@ -235,7 +235,7 @@ function waorder_product_detail_metabox_view($post){
         </div>
     </div>
     <?php
-}
+} */
 
 function waorder_product_galery_metabox_view( $post ) {
 
@@ -270,7 +270,7 @@ function waorder_product_galery_metabox_view( $post ) {
 /*
  * Save Meta Box data
  */
-//add_action('save_post', 'waorder_product_metabox_save');
+add_action('save_post', 'waorder_product_metabox_save');
 function waorder_product_metabox_save( $post_id ) {
 
     if ( !isset( $_POST['waordernonce'] ) ) {

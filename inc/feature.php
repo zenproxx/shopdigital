@@ -21,7 +21,7 @@ function waorder_feature_save_action(){
 
 add_action( 'admin_menu','waorder_feature_admin_menu' );
 function waorder_feature_admin_menu(){
-    add_menu_page( 'Waorder', 'Waorder', 'manage_options', 'waorder', 'waorder_feature_options_page', 'dashicons-portfolio', 30);
+    add_menu_page( 'Ongkir dan Pembayaran', 'Ongkir dan Pembayaran', 'edit_theme_options', 'waorder', 'waorder_feature_options_page', 'dashicons-portfolio', 30);
 }
 
 function waorder_feature_options_page(){
@@ -45,7 +45,7 @@ function waorder_feature_options_page(){
 
     ?>
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php echo esc_html( __( 'Waorder Feature', 'waorder' ) ); ?></h1>
+        <h1 class="wp-heading-inline"><?php echo esc_html( __( 'Ongkir dan Pembayaran', 'waorder' ) ); ?></h1>
 
         <h2 class="nav-tab-wrapper wp-clearfix">
             <?php foreach ($tabs as $url => $title) : ?>

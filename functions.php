@@ -55,6 +55,9 @@ require  get_template_directory() . '/inc/ongkir.php';
 require  get_template_directory() . '/inc/payment.php';
 require  get_template_directory() . '/inc/form.php';
 
+//new snippet
+require  get_template_directory() . '/inc/e-commerce-snippets.php';
+
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/

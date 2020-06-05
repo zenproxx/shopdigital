@@ -35,7 +35,7 @@ class WaOrder_Customize {
             )
         );
 
-        $wp_customize->add_section(
+        /* $wp_customize->add_section(
             'waorder_featured_section',
             array(
                 'title'       => __( 'Featured', 'waorder' ), //Visible title of section
@@ -43,7 +43,7 @@ class WaOrder_Customize {
                 'capability'  => 'edit_theme_options', //Capability needed to tweak
                 'description' => __('Featured Section', 'waorder'), //Descriptive tooltip
             )
-        );
+        ); */
 
         $wp_customize->add_section(
             'waorder_social_section',
@@ -576,7 +576,7 @@ class WaOrder_Customize {
             )
         );
 
-        $wp_customize->add_setting(
+        /* $wp_customize->add_setting(
             'waorder_copyright_text',
             array(
                 'default'    => '&copy; '.date('Y').' Copyright WA ORDER', //Default setting/value to save
@@ -598,7 +598,7 @@ class WaOrder_Customize {
                     'type' => 'textarea'
                 )
             )
-        );
+        ); */
 
         $wp_customize->add_setting(
             'waorder_nextproduct_text',

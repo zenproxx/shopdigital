@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', 'waorder_form'); // Add our Product Type
+//add_action('init', 'waorder_form'); // Add our Product Type
 function waorder_form(){
     if( waorder_lislis() !== 'active' ) return;
     register_post_type('form', // Register Custom Post Type
