@@ -290,7 +290,7 @@ class WaOrder_Customize {
         $wp_customize->add_setting(
             'waorder_color_scheme',
             array(
-                'default'    => '#61DDBB', //Default setting/value to save
+                'default'    => '#63c5dd', //Default setting/value to save
                 'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
                 'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
                 'transport'  => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -576,22 +576,22 @@ class WaOrder_Customize {
             )
         );
 
-        /* $wp_customize->add_setting(
+         $wp_customize->add_setting(
             'waorder_copyright_text',
             array(
-                'default'    => '&copy; '.date('Y').' Copyright WA ORDER', //Default setting/value to save
+                'default'    => '&copy; '.date('Y').' Copyright ShopDigital', //Default setting/value to save
                 'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
                 'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
                 'transport'  => 'refresh', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
             )
         );
-
+        /*
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
                 'waorder_copyright_text_input',
                 array(
-                    'label'      => __( 'Footer Copyright', 'waorder' ), //Admin-visible name of the control
+                    'label'      => __( 'Footer ', 'waorder' ), //Admin-visible name of the control
                     'settings'   => 'waorder_copyright_text', //Which setting to load and manipulate (serialized is okay)
                     'priority'   => 10, //Determines the order this control appears in for the specified section
                     'section'    => 'waorder_copyright_section',

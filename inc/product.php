@@ -1,7 +1,7 @@
 <?php
 
-//add_action('init', 'waorder_product'); // Add our Product Type
-/* function waorder_product()
+add_action('init', 'waorder_product'); // Add our Product Type
+function waorder_product()
 {
     if( waorder_lislis() !== 'active' ) return;
     register_post_type('product', // Register Custom Post Type
@@ -31,7 +31,7 @@
         'can_export' => true,
         'menu_icon' => 'dashicons-products',
     ));
-} */
+}
 
 
 //add_action( 'init', 'waorder_product_category_taxonomy', 0 );
@@ -60,7 +60,8 @@
         'rewrite'           => array( 'slug' => 'product-category' ),
     ));
 
-} */
+} 
+*/
 
 /*
  * Add a meta box

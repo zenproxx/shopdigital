@@ -41,7 +41,7 @@
 
 			<div class="judulproduk">
 				<h3><i class="fas fa-shopping-bag"></i> PRODUK TERBARU</h3>
-				<a href="<?php echo site_url(); ?>/product/"><i class="fas fa-angle-double-right"></i> Lihat Semua</a>
+				<a href="<?php echo site_url('product'); ?>"><i class="fas fa-angle-double-right"></i> Lihat Semua</a>
 				<div class="clearfix"></div>
 				<hr>
 			</div>

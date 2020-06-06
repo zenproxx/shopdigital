@@ -85,7 +85,7 @@
 
 			<div class="wrapper clear">
 				<div class="copyright">
-					<?php echo get_theme_mod('waorder_copyright_text','© 2019 Copyright WA ORDER'); ?>
+					<?php echo get_theme_mod('waorder_copyright_text','© 2019 Copyright ShopDigital'); ?>
 				</div>
 			</div>
 
