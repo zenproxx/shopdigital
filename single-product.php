@@ -70,13 +70,16 @@
 								$is_out_stock           = get_post_meta($post_id, 'product_out_stock', true);
 								if ( $product->managing_stock() && ! $product->is_in_stock() ) {
 									$is_out_stock='yes';
+								}			
+								global $product;
+								if( $product->is_on_sale() ) {
+									$price= $product->get_sale_price();
+									$price_slik = get_post_meta(get_the_ID(), '_regular_price', true);
 								}
-								
-								//$is_out_stock           = get_post_meta($post_id, 'product_out_stock', true);
-								//$price                  = get_product($post_id)->get_price;
-								//$price_slik             = get_post_meta($post_id, '_sale_price', true);
-								$price                  = get_post_meta($post_id, '_regular_price', true);
-								//$price_slik             = get_post_meta($post_id, '_sale_price', true);
+								else{
+									$price=$product->get_regular_price();
+									$price_slik = (int) get_post_meta(get_the_ID(), 'product_price_slik', true);
+								}
 								$size_data              = get_post_meta($post_id, 'product_size', true);
 								$color_data             = get_post_meta($post_id, 'product_color', true);
 

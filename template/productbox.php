@@ -15,8 +15,17 @@
             </div>
             <div class="pricing">
                 <?php
-                $price = get_post_meta(get_the_ID(), '_regular_price', true);
-                $price_slik = (int) get_post_meta(get_the_ID(), 'product_price_slik', true);
+                global $product;
+                if( $product->is_on_sale() ) {
+                    $price= $product->get_sale_price();
+                    $price_slik = get_post_meta(get_the_ID(), '_regular_price', true);
+                }
+                else{
+                    $price=$product->get_regular_price();
+                    //$price = get_post_meta(get_the_ID(), '_regular_price', true);
+                    $price_slik = (int) get_post_meta(get_the_ID(), 'product_price_slik', true);
+                }
+                
                 ?>
                 <?php if( $price_slik ): ?><span class="price_slik"><del>Rp <?php echo number_format($price_slik,0,',','.'); ?></del></span><?php endif; ?>
                 <span class="price">Rp <?php echo number_format($price,0,',','.'); ?></span>

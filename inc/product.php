@@ -292,7 +292,7 @@ function waorder_product_metabox_save( $post_id ) {
         update_post_meta( $post_id, 'product_price', sanitize_text_field($_POST['product_price']) );
     }
 
-    if ( isset( $_POST[ 'product_price_slik' ] ) ) {
+    if ( isset( $_POST[ 'product_' ] ) ) {
         update_post_meta( $post_id, 'product_price_slik', sanitize_text_field($_POST['product_price_slik']) );
     }
 
