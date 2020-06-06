@@ -129,6 +129,8 @@ function remove_my_metaboxes() {
 	remove_meta_box( 'tagsdiv-product_tag', 'product', 'side' );
 	remove_meta_box('postimagediv','product','side');
 	remove_meta_box( 'postexcerpt', 'product', 'normal' );
+	remove_meta_box( 'postcustom', 'product', 'normal' );
+	remove_meta_box( 'slug', 'product', 'normal' );
 }
 add_action('add_meta_boxes','remove_my_metaboxes',40);
 
@@ -146,6 +148,43 @@ function metabox_order( $order ) {
         ),
     );
 }
+
+/**
+ * metabox shop order edit
+ */
+function remove_order_metaboxes() {
+
+	remove_meta_box( 'woocommerce-order-notes',  'shop_order', 'side');
+	remove_meta_box( 'postcustom', 'shop_order', 'normal' );
+	remove_meta_box( 'woocommerce-order-downloads', 'shop_order', 'normal' );
+	remove_meta_box( 'waorder-order-data',  'shop_order', 'side');
+	remove_meta_box( 'waorder-order-items', 'shop_order', 'normal' );
+	remove_meta_box( 'waorder-order-actions', 'shop_order', 'normal' );
+}
+add_action('add_meta_boxes','remove_order_metaboxes',40);
+
+function add_order_metaboxes() {
+
+	add_meta_box( 'waorder-order-data',  '', '');
+	add_meta_box( 'waorder-order-items', '', '' );
+	add_meta_box( 'waorder-order-actions', '', '' );
+}
+add_action('add_meta_boxes','add_order_metaboxes',40);
+
+
+/* add_filter( 'get_user_option_meta-box-order_shop_order', 'metabox_order_shop_order' );
+function metabox_order_shop_order( $order ) {
+    return array(
+        'normal' => join( 
+            ",", 
+            array(       // Arrange here as you desire
+                'waorder-order-data',
+                'waorder-order-items',
+                'waorder-order-actions',
+            )
+        ),
+    );
+} */
 
 /**
  * edit tampilan produk
@@ -239,7 +278,7 @@ $role->remove_cap( 'view_woocommerce_reports' );
   */
   function custom_login_logo() {
     echo '<style type="text/css">
-        h1 a { background-image:url('.get_bloginfo('template_directory').'/img/logos.png) !important; }
+        h1 a { background-image:url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; }
     </style>';
 }
 add_action('login_head', 'custom_login_logo');
